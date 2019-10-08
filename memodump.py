@@ -809,10 +809,10 @@ class Theme(ThemeBase):
         """
         # subroutines to generate compiled data
         def generateAction(action, title=''):
-            query = self.menuGetQueryString({'action': action, 'rev': rev})
+            query = {'action': action, 'rev': rev}
             if not title:
                 title = _(action)
-            return (action, title, u'%s%s' % (page.url(request), query), False)
+            return (action, title, u'%s' % page.url(request,querystr=query), False)
         def generateHeader(key, title):
             return (key, _(title), '', 'header')
         def generateSpecial(key, data):
